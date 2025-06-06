@@ -7,23 +7,376 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Javascript Week 4</h1>
+    <h1>JavaScript Week 4</h1>
 
+    <!--Lesson 1-->
     <div class="lesson">
         <h3>Lesson 1: Show text on Page</h3>
 
         <h2 id="heading1">Hello</h2>
         <p id="text1">World</p>
-        <button onclick="lesson1()">Change Text</button>    
-    
-        <script>
-            function lesson1(){
-                document.getElementById("heading1").innerHTML = "This is Javascript";
-                document.getElementById("text1").innerHTML = "I'm having FUN!";
+        <button onclick="lesson1()">Change Text</button>
 
+        <script>
+            function lesson1() {
+                document.getElementById("heading1").innerHTML = "This is JavaScript!";
+                document.getElementById("text1").innerHTML = "I'm having fun!";
             }
         </script>
-    
     </div>
+
+
+    <!-- Lesson 2 -->
+    <div class="lesson">
+        <h2>Lesson 2: Variables (Text Storage)</h2>
+
+        <h2 id="heading2">Text will change</h2>
+        <p id="text2">More text here</p>
+        <button onclick="lesson2()">Use Variables</button>
+
+        <script>
+            function lesson2() {
+                var message1 = "Hello everyone!";
+                var message2 = "I love JavaScript! ";
+                var message3 = "It's awesome!";
+
+                document.getElementById("heading2").innerHTML = message1;
+                document.getElementById("text2").innerHTML = message2 + message3;
+            }
+        </script>
+    </div>
+
+
+    <!-- Lesson 3 -->
+    <div class="lesson">
+        <h3>Lesson 3: Variables (Numbers)</h3>
+
+        <p id="math">Math equation will show up here</p>
+        <button onclick="lesson3()">Do Math</button>
+
+        <script>
+            function lesson3() {
+                var num1 = 7;
+                var num2 = 10;
+                document.getElementById("math").innerHTML = num1 + " x " + num2 + " = " + (num1 * num2);
+            }
+        </script>
+    </div>
+
+    <!-- Lesson 4 -->
+
+    <div class="lesson">
+        <h3>Lesson 4: If/Else Decisions (Conditionals)</h3>
+
+        <input type="password" id="password" placeholder="Try: 007">
+        <button onclick="lesson4()">Check Password</button>
+        <div class="result" id="result4">Enter password and click</div>
+
+        <script>
+            function lesson4() {
+                var userPassword = document.getElementById("password").value;
+
+                if (userPassword == "007") {
+                    document.getElementById("result4").innerHTML = "Correct password. You are logged in!";
+                } else {
+                    document.getElementById("result4").innerHTML = "Wrong password! Please try again.";
+                } 
+            }
+        </script>
+    </div>
+
+    <!-- Lesson 5 -->
+    
+    <div class="lesson">
+        <h3>Lesson 5: Click events</h3>
+
+        <h2 onclick="this.innerHTML='is awesome!' ">JavaScript</h2>
+        <p>Click on the word "JavaScript" above.</p>
+    </div>
+
+    <!-- Lesson 6 -->
+    <div class="lesson">
+        <h3>Lesson 6: Toggle Functions</h3>
+        
+        <h2 id="toggle" onclick="toggleText()">JavaScript</h2>
+        <p>Click repeatedly to toggle!</p>
+        
+        <script>
+            function toggleText() {
+                var toggle = document.getElementById("toggle");
+
+                if (toggle.innerHTML == "JavaScript") {
+                    toggle.innerHTML = "is awesome";
+                } else {
+                    toggle.innerHTML = "JavaScript";
+                }
+            }
+        </script>
+    </div>
+
+
+    <!-- Lesson 7 -->
+    <div class="lesson">
+        <h2>Lesson 7: Function Parameters</h2>
+        <p><strong>Concept</strong>: Passing data into functions</p>
+
+        <button onclick="addNumbers(10, 7)">Add 10 + 7</button>
+        <button onclick="addNumbers(25, 18)">Add 25 + 18</button>
+        <button onclick="addNumbers(1245, 562)">Add 1245 + 562</button>
+        <div class="output" id="addition7">Result will show here.</div>
+
+        <script>
+            function addNumbers(num1, num2) {
+                document.getElementById("addition7").innerHTML = "12" + num2
+            }
+        </script>
+    </div>
+
+    <!-- Lesson 8-->
+    <div class="lesson">
+        <h2>Lesson 8: Function Return</h2>
+        <p><strong>Concept:</strong> Functions returning values to be used elsewhere.</p>
+
+        <button onclick="runLesson8()">Calcualte and Display Result</button>
+        <div class="output" id="addition8">Result will show here.</div>
+
+        <script>
+            function runLesson8() {
+                document.getElementById("addition8").innerHTML = "10 + 7 = " + addNumbersReturn(10, 7);
+            }
+
+            function addNumbersReturn(num1, num2) {
+                return num1 + num2;
+            }
+        </script>
+    </div>
+
+    <!-- Lesson 9 -->
+    <div class="lesson">
+        <h2>Lesson 9: Variable Scopes</h2>
+        <p><strong>Concept:</strong> Understanding where variables can be used.</p>
+
+        <button onclick="demonstrateLocalScope()">Demonstrate Local Scope</button>
+        <button onclick="demonstrateScope()">Demonstrate Variable Scope</button>
+        <div class="output" id="scopeOutput">Click button to see variable scope in action</div>
+
+        <script>
+            var globalVariable = "I'm a global variable";
+
+            function demonstrateScope() {
+                var localVariable = "I'm a local variable"; 
+                document.getElementById("scopeOutput").innerHTML = 
+                "Global: " + globalVariable + "<br>" +
+                "Local: " + localVariable + "<br>" +
+                "Local variables only exist inside their function!";
+            }
+
+            function demonstrateLocalScope() {
+                document.getElementById("scopeOutput").innerHTML = localVariable
+            }
+
+        </script>
+    </div>
+
+    <!-- Lesson 10 -->
+    <div class="lesson">
+        <h2>Lesson 10: Mini Project - Login Form Part 1</h2>
+        <p><strong>Concept:</strong> Getting user input from form elements</p>
+
+        <form>
+            <label for="usernameInput10">Username:</label>
+            <input type="text" id="usernameInput10"/> <br><br>
+
+            <label for="passwordInput10">Password:</label>
+            <input type="password" id="passwordInput10"/> <br><br>
+
+            <button type="button" onclick="verifyUser10()">Get Input Values</button>
+        </form>
+
+        <div class="output" id="message10">Enter username and password, then click button</div>
+
+        <script>
+            function verifyUser10() {
+                var username = document.getElementById("usernameInput10").value;
+                var password =  document.getElementById("passwordInput10").value;
+
+                document.getElementById("message10").innerHTML = "Username entered: " + username + "<br>Password entered: " + password;
+            }
+        </script>
+
+
+    </div>
+
+    <!-- Lesson 11 -->
+    <div class="lesson">
+        <h2>Lesson 11: Mini Project - Login Form Part 2</h2>
+        <p><strong>Concept:</strong> Complete login verification with functions and conditionals</p>
+        <p><em>Try username: AppAcademy, password: 12@cademy</em></p>
+
+        <form>
+            <label for="usernameInput11">Username:</label>
+            <input type="text" id="usernameInput11"/> <br><br>
+
+            <label for="passwordInput11">Password:</label>
+            <input type="password" id="passwordInput11"/> <br><br>
+            
+            <button type="button" onclick="verifyUser11()">Login</button>
+        </form>
+
+        <div class="output" id="message11">Enter credentials and click Login</div>
+
+        <script>
+            function verifyUser11() {
+                var username = document.getElementById("usernameInput11").value;
+                var password = document.getElementById("passwordInput11").value;
+                checkUserCreds(username, password);
+            }
+
+            function checkUserCreds(username, password) {
+                var adminUsername = "AppAcademy";
+                var adminPassword = "12@cademy";
+
+                if (username == adminUsername && password == adminPassword) {
+                    document.getElementById("message11").innerHTML = "Correct. Logging you in...";
+                } else {
+                    document.getElementById("message11").innerHTML = "Username or password is incorrect";
+                }
+            }
+
+
+        </script>
+
+    </div>
+
+    <!-- Lesson 12 -->
+     <div class="lesson">
+        <h2>Lesson 12: The SWITCH statement</h2>
+        <p><strong>Concept:</strong> Using SWITCH Statements for multiple conditions</p>
+
+        <label for="weather12">Select weather.</label>
+        <select id="weather12">
+            <option value="">Choose weather...</option>
+            <option value="sunny">Sunny</option>
+            <option value="windy">Windy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
+        </select>
+        <button onclick="getWeatherAdvice()">Get Advice</button>
+        <div class="output" id="advice12">Select weather and click for advice</div>
+
+        <script>
+            function getWeatherAdvice() {
+                var weatherSelected = document.getElementById("weather12").value;
+                let advice;
+
+                switch (weatherSelected) {
+                    case "sunny":
+                        advice = "Wear your sunglasses and sunscreen!";
+                        break;
+                    case "windy":
+                        advice = "Wear a jacket and secure loose items!";
+                        break;
+                    case "rainy":
+                        advice = "Don't forget an umbrella!";
+                        break;
+                    case "snowy":
+                        advice = "Bundle up and wear warm boots!";
+                        break;
+                    default:
+                        advice = "Please select a weather condition from the list!";
+                }
+
+                document.getElementById("advice12").innerHTML = advice;
+                
+            }
+        </script>
+     </div>
+
+    <!-- Lesson 13 -->
+    <div class="lesson">
+        <h2>Lesson 13: Numbers and Strings Part 1</h2>
+        <p><strong>Concept:</strong> understanding how JavaScript handles text vs numbers</p>
+
+        <button onclick="demonstrateStringNumber()">Show String vs Number</button>
+        <div class="output" id="stringNumberOutput">Click to 
+            see the diffrence between strings and numbers</div>
+
+        <script>
+            function demonstrateStringNumber() {
+                var numberA = 5;
+                var numberB = 3;
+                var stringA = "5";
+                var stringB = "3";
+
+                document.getElementById("stringNumberOutput").innerHTML = 
+                    "Number addition: " + (numberA + numberB) + "<br>" +
+                    "String concatenation: " + (stringA + stringB) + "<br>" +
+                    "Mixed: " + (numberA + stringB);
+            }
+        </script>
+    </div>
+
+    <!-- Lesson 14 -->
+     <div class="lesson">
+        <h2>Lesson 14: Numbers and Strings Part 2 - Converting Text to Numbers</h2>
+        <p><strong>Concept:</strong> Converting string input to numbers for calculations</p>
+
+        <input type="text" id="textNumber1" placeholder="Enter first number" value="10">
+        <input type="text" id="textNumber2" placeholder="Enter second number" value="5">
+        <button onclick="convertAndAdd()">Convert and Add</button>
+        <div class="output" id="conversionOutput">Enter 
+            numbers and click to see conversion in action</div>
+
+        <script>
+            function convertAndAdd() {
+                var input1 = document.getElementById("textNumber1").value;
+                var input2 = document.getElementById("textNumber2").value;
+
+                //Without conversion (String concatenation)
+                var stringResult = input1 + input2;
+
+                //With conversion (number addition)
+                var numberResult = parseInt(input1) + parseInt(input2);
+
+                document.getElementById("conversionOutput").innerHTML = 
+                    "Without conversion: " + stringResult + "<br>" +
+                    "With conversion: " + numberResult;
+            }
+        </script>
+    </div>
+
+    <!-- Lesson 15 -->
+     <div class="lesson">
+        <h2>Lesson 15: Numbers and Strings Part 3 - Avoiding Conversion Errors</h2>
+        <p><strong>Concept:</strong> Handling conversion errors and invalid input</p>
+
+        <input type="text" id="safeInput1" placeholder="Enter first number">
+        <input type="text" id="safeInput2" placeholder="Enter second number">
+        <button onclick="safeConvertAndAdd()">Safe Convert and Add</button>
+        <div class="output" id="safeOutput">Try entering both number and non-numbers 
+            for error handling</div>
+        
+        <script>
+            function safeConvertAndAdd() {
+                var input1 = document.getElementById("safeInput1").value;
+                var input2 = document.getElementById("safeInput2").value;
+
+                var num1 = parseInt(input1);
+                var num2 = parseInt(input2);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    document.getElementById("safeOutput").innerHTML = 
+                        "Error: Please enter valid numbers only!<br>" +
+                        "Input 1: '" + input1 + "' → " + (isNaN(num1) ? "Invalid" : "Valid") + "<br>" +
+                        "Input 2: '" + input2 + "' → " + (isNaN(num2) ? "Invalid" : "Valid");
+                } else {
+                    document.getElementById("safeOutput").innerHTML = 
+                        "Success! " + num1 + " + " + num2 + " = " + (num1 + num2)
+                }
+            }
+
+
+        </script>
+     </div>
 </body>
 </html>
